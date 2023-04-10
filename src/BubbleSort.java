@@ -4,17 +4,18 @@ import java.util.Random;
 public class BubbleSort {
     public static void main(String[] args) {
         Random r = new Random();
-        int[] arr = new int[10];
+        int[] arr = new int[1000];
         for(int i = 0; i < arr.length; i++) {
             arr[i] = r.nextInt(1000);
         }
         boolean shifted = true;
 
-        print(arr);
+     //   print(arr);
 
         while(shifted){
             shifted = false;
             for (int i = 0; i < arr.length-1; i++) {
+                System.out.println(i);
                 if(arr[i] > arr[i+1]){
                     int temp = arr[i];
                     arr[i] = arr[i+1];
@@ -26,14 +27,14 @@ public class BubbleSort {
         System.out.println("\nSorted");
         print(arr);
 
-        int [] sortedArray = recursion(arr,true);
-        print(sortedArray);
+//        int [] sortedArray = recursion(arr,true);
+//        print(sortedArray);
 
     }
 
     static void print(int [] arr){
         System.out.println();
-        Arrays.stream(arr).forEach(a -> System.out.print(a+" "));
+        Arrays.stream(arr).forEach(a -> System.out.print(a+"\n"));
     }
 
     static int[] recursion(int [] arr, boolean shifted){
@@ -51,5 +52,22 @@ public class BubbleSort {
         }
         return arr;
     }
+    Car car1 = new Car("car1",100);
+    Car car2 = new Car(car1);
 
+}
+
+class Car{
+    String name;
+    int price;
+
+    public Car(String name, int price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    public Car(Car car){
+        this.name = car.name;
+        this.price = car.price;
+    }
 }
