@@ -52,22 +52,7 @@ public class BubbleSort {
         }
         return arr;
     }
-    Car car1 = new Car("car1",100);
-    Car car2 = new Car(car1);
+
 
 }
 
-class Car{
-    String name;
-    int price;
-
-    public Car(String name, int price) {
-        this.name = name;
-        this.price = price;
-    }
-
-    public Car(Car car){
-        this.name = car.name;
-        this.price = car.price;
-    }
-}
