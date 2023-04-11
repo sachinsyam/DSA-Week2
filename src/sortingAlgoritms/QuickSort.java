@@ -1,16 +1,12 @@
+package sortingAlgoritms;
+
 import java.util.Arrays;
 import java.util.Random;
 
 public class QuickSort {
     public static void main(String[] args) {
-        Random random = new Random();
 
-
-        int [] arr = new int[10];
-
-        for (int i = 0; i <arr.length ; i++) {
-            arr[i] = random.nextInt(10);
-        }
+       int [] arr = new int[]{ 8,5,6,1,0,2,3,4,7,6 };
 
         print(arr);
         quickSort(arr, 0, arr.length-1);

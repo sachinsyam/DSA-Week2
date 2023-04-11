@@ -1,4 +1,4 @@
-package self;
+package sortingAlgoritms;
 public class InsertionSort {
     /*Function to sort array using insertion sort*/
 void sort(int [] arr){
@@ -24,7 +24,7 @@ void sort(int [] arr){
     // Driver method
     public static void main(String args[])
     {
-        int[] arr = { 12, 11, 13, 5, 6 };
+        int[] arr = { 8,5,6,1,0,2,3,4,7,6 };
         printArray(arr);
         InsertionSort ob = new InsertionSort();
         ob.sort(arr);

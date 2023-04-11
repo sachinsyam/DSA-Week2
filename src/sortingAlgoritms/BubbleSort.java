@@ -1,13 +1,14 @@
+package sortingAlgoritms;
+
 import java.util.Arrays;
 import java.util.Random;
 
 public class BubbleSort {
     public static void main(String[] args) {
-        Random r = new Random();
-        int[] arr = new int[1000];
-        for(int i = 0; i < arr.length; i++) {
-            arr[i] = r.nextInt(1000);
-        }
+
+        int[] arr ={ 8,5,6,1,0,2,3,4,7,6 };
+        print(arr);
+
         boolean shifted = true;
 
      //   print(arr);
@@ -15,8 +16,7 @@ public class BubbleSort {
         while(shifted){
             shifted = false;
             for (int i = 0; i < arr.length-1; i++) {
-                System.out.println(i);
-                if(arr[i] > arr[i+1]){
+                    if(arr[i] > arr[i+1]){
                     int temp = arr[i];
                     arr[i] = arr[i+1];
                     arr[i+1] = temp;
@@ -24,7 +24,6 @@ public class BubbleSort {
                 }
             }
         }
-        System.out.println("\nSorted");
         print(arr);
 
 //        int [] sortedArray = recursion(arr,true);
@@ -34,7 +33,7 @@ public class BubbleSort {
 
     static void print(int [] arr){
         System.out.println();
-        Arrays.stream(arr).forEach(a -> System.out.print(a+"\n"));
+        Arrays.stream(arr).forEach(a -> System.out.print(a+" "));
     }
 
     static int[] recursion(int [] arr, boolean shifted){
