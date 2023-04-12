@@ -83,6 +83,7 @@ public class MergeSort {
 
     // Driver code
     public static void main(String[] args){
+        System.out.println("Merge Sort");
         int[] arr = { 8,5,6,1,0,2,3,4,7,6 };
 
         System.out.println("Given Array");

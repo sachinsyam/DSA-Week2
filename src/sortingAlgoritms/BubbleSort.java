@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class BubbleSort {
     public static void main(String[] args) {
-
+        System.out.println("Bubble Sort");
         int[] arr ={ 8,5,6,1,0,2,3,4,7,6 };
         print(arr);
 

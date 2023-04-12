@@ -1,11 +1,15 @@
 package sortingAlgoritms;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Arrays;
 import java.util.Random;
 
 public class QuickSort {
+
     public static void main(String[] args) {
 
+        System.out.println("Quick Sort");
        int [] arr = new int[]{ 8,5,6,1,0,2,3,4,7,6 };
 
         print(arr);

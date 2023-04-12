@@ -24,6 +24,7 @@ void sort(int [] arr){
     // Driver method
     public static void main(String args[])
     {
+        System.out.println("Insertion Sort");
         int[] arr = { 8,5,6,1,0,2,3,4,7,6 };
         printArray(arr);
         InsertionSort ob = new InsertionSort();
