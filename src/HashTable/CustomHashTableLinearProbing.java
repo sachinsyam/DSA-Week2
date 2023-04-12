@@ -1,18 +1,6 @@
 package HashTable;
-
 public class CustomHashTableLinearProbing {
-    public static void main(String[] args) {
-        CustomHashTableLinearProbing table = new CustomHashTableLinearProbing(10);
-        table.put(1,"Hello");
-        table.put(2,"Hello2");
-        table.put(3,"Hello3");
-        table.put(15,"Hello15");
-        table.put(25,"Hello25");
-
-        table.printTable();
-        System.out.println(table.get(25));
-    }
-    private class Node{
+    private class Node {
         int key;
         String value;
 
@@ -21,63 +9,83 @@ public class CustomHashTableLinearProbing {
             this.value = value;
         }
     }
-    int size;
-    Node [] table = new Node[size];
+
+    private int size;
+    private Node[] table;
 
     public CustomHashTableLinearProbing(int size) {
         this.size = size;
-        table = new Node[size];
-        for (int i = 0; i <size ; i++) {
-            table[i] = null;
-        }
+        this.table = new Node[size];
     }
-    public int put(int key, String value){
-        int hash = key%10;
-        int probes=0;
-        if(table[hash] == null || table[hash].key == key) {
+
+    public int put(int key, String value) {
+        int hash = key % size;
+        int probes = 1;
+
+        if (table[hash] == null || table[hash].key == key) {
             table[hash] = new Node(key, value);
-            return ++probes;
-        }
-        else{
-            int i=0;
-            while(i<size){
-                probes++;
-                if (table[(hash + i) % size] == null || table[(hash + i) % size].key == key) {
-                    table[(hash + i) % size] = new Node(key, value);
-                    System.out.printf("Added at pos:"+(hash + i) % size);
+        } else {
+            int i = 1;
+            while (i < size) {
+                int index = (hash + i) % size;
+
+                if (table[index] == null || table[index].key == key) {
+                    table[index] = new Node(key, value);
                     break;
                 }
+
+                i++;
+                probes++;
+            }
+
+            if (i == size) {
+                System.out.println("Not able to insert");
+            }
+        }
+
+        return probes;
+    }
+
+    public String get(int key) {
+        int hash = key % size;
+
+        if (table[hash] != null && table[hash].key == key) {
+            return table[hash].value;
+        } else {
+            int i = 1;
+            while (i < size) {
+                int index = (hash + i) % size;
+
+                if (table[index] != null && table[index].key == key) {
+                    return table[index].value;
+                }
+
                 i++;
             }
-            if(i==size)
-                System.out.println("Not able to insert");
-            return probes;
-        }
-    }
-    public String get(int key){
-        int hash = key%10;
-        if(table[hash].key == key)
-            return table[hash].value;
-        else{
-            for (int i = 0; i <size ; i++) {
-                try{
-                    if (table[i].key == key)
-                        return table[i].value;
-                }catch (Exception e){
-                    //System.out.println("null");
-                }
-            }
+
             return "Not Found";
         }
     }
-    public void printTable(){
+
+    public void printTable() {
         for (int i = 0; i < size; i++) {
-           try{
-               System.out.println("Key:"+table[i].key+" Value:"+table[i].value);
-           }
-           catch (Exception e){
-               System.out.println("null");
-           }
+            if (table[i] != null) {
+                System.out.println("Key: " + table[i].key + " Value: " + table[i].value);
+            } else {
+                System.out.println("null");
+            }
         }
+    }
+
+    public static void main(String[] args) {
+        CustomHashTableLinearProbing table = new CustomHashTableLinearProbing(10);
+        table.put(1, "Hello");
+        table.put(2, "Hello2");
+        table.put(3, "Hello3");
+        table.put(15, "Hello15");
+        table.put(25, "Hello25");
+
+        table.printTable();
+        System.out.println(table.get(25));
     }
 }
