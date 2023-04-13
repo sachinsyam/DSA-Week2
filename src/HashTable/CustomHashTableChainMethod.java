@@ -16,7 +16,7 @@ public class CustomHashTableChainMethod {
 
     public void put(int key, String value) {
         int hash = key % size;
-        if (table[hash] == null) {
+        if (table[hash] == null || table[hash].key==key) {
             table[hash] = new Node(key, value);
         } else {
             Node entry = table[hash];
