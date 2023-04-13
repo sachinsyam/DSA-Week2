@@ -26,3 +26,7 @@ worst case occurs when the pivot element is either greatest or smallest element.
 Average and Worst: O(n^2)
 Best: O(n)
 this is the case when the list is already in the correct order
+
+**Selection Sort**
+Selection sort has a time complexity of O(n^2) in the worst and average case.
+Does not work well on large datasets.
