@@ -26,8 +26,6 @@ public class BubbleSort {
         }
         print(arr);
 
-//        int [] sortedArray = recursion(arr,true);
-//        print(sortedArray);
 
     }
 

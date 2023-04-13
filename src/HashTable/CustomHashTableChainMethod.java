@@ -47,6 +47,31 @@ public class CustomHashTableChainMethod {
             }
         }
     }
+    public void delete(int key){
+        int hash = key % size;
+
+        if (table[hash].key == key){
+            table[hash] = table[hash].next;
+        }
+        else{
+            Node current = table[hash];
+            Node prev = null;
+            while (current != null && current.key != key) {
+                prev = current;
+                current = current.next;
+            }
+            if (current == null) {
+                System.out.println("Not Found");
+            }
+            if (current.key == key) {
+                if (current.next != null) {
+                    prev.next = current.next;
+                } else {
+                    prev.next = null;
+                }
+            }
+        }
+    }
 
     private class Node {
         int key;
@@ -65,8 +90,11 @@ public class CustomHashTableChainMethod {
         ht.put(1, "value1");
         ht.put(15, "value2");
         ht.put(25, "value3");
+        ht.delete(1);
+        ht.delete(25);
         System.out.println(ht.get(1));
         System.out.println(ht.get(15));
         System.out.println(ht.get(25));
+
     }
 }
