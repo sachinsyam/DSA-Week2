@@ -15,13 +15,24 @@ public class CustomQueue {
         count = 0;
     }
 
+    public void display(){
+        if(rear == -1)
+            System.out.println("Queue is empty");
+        else {
+            System.out.println("Size:" + count + "/" + size);
+            for (int i = front; i <= rear; i++) {
+                System.out.printf(queueArray[i] + " ");
+            }
+        }
+    }
+
     public void enqueue(int element) {
         if (isFull()) {
             System.out.println("Queue is full, cannot enqueue element");
             return;
         }
 
-        rear = (rear + 1) % size;
+        rear++;
         queueArray[rear] = element;
         count++;
     }
@@ -33,7 +44,7 @@ public class CustomQueue {
         }
 
         int dequeuedElement = queueArray[front];
-        front = (front + 1) % size;
+        front++;
         count--;
         return dequeuedElement;
     }
@@ -43,7 +54,7 @@ public class CustomQueue {
             System.out.println("Queue is empty, cannot peek element");
             return -1;
         }
-
+        System.out.println(queueArray[front]);
         return queueArray[front];
     }
 
@@ -57,6 +68,24 @@ public class CustomQueue {
 
     public int size() {
         return count;
+    }
+
+    public static void main(String[] args) {
+        CustomQueue queue = new CustomQueue(10);
+        queue.enqueue(10);
+        queue.enqueue(20);
+        queue.enqueue(30);
+
+        queue.display();
+
+        System.out.println("\nFront:"+queue.queueArray[queue.front]);
+        System.out.println("Rear:"+queue.queueArray[queue.rear]);
+
+        queue.dequeue();
+
+        queue.display();
+        System.out.println("\nFront:"+queue.queueArray[queue.front]);
+        System.out.println("Rear:"+queue.queueArray[queue.rear]);
     }
 }
 
